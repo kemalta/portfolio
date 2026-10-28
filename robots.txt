@@ -1,0 +1,6 @@
+User-Agent: *
+Allow: /
+Disallow: /api/
+
+Host: https://kemalta.github.io/portfolio
+Sitemap: https://kemalta.github.io/portfolio/sitemap.xml
