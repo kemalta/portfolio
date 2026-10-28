@@ -66,6 +66,19 @@ export function Contact() {
         setErrors(localErrors);
         setStatus("error");
         setFeedback("Formda eksik alanlar var.");
+        // Leave the user on the submit button and the error is easy to miss on a
+        // phone. Move focus to the first bad field (this also raises the
+        // keyboard ready to type) and keep it clear of the fixed header.
+        const firstInvalid = ["name", "email", "message"].find(
+          (field) => localErrors[field],
+        );
+        if (firstInvalid) {
+          requestAnimationFrame(() => {
+            const field = document.getElementById(`${formId}-${firstInvalid}`);
+            field?.focus({ preventScroll: true });
+            field?.scrollIntoView({ block: "center", behavior: "smooth" });
+          });
+        }
         return;
       }
 
@@ -135,7 +148,7 @@ export function Contact() {
         setFeedback("Bağlantı hatası. Tekrar deneyin.");
       }
     },
-    [form, status],
+    [form, formId, status],
   );
 
   const hasChannel = Boolean(siteConfig.email) || siteConfig.links.length > 0;
