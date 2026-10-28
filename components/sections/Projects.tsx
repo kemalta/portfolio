@@ -242,7 +242,7 @@ function OpenButton({
       type="button"
       onClick={onOpen}
       className={cn(
-        "group/btn inline-flex items-center gap-3 border border-ink/25 px-4 py-2.5 font-mono text-[9px] uppercase tracking-[0.18em] text-ink transition-colors duration-200 hover:border-cyan/60 hover:text-cyan",
+        "tap group/btn inline-flex items-center gap-3 border border-ink/25 px-4 py-2.5 font-mono text-[9px] uppercase tracking-[0.18em] text-ink transition-colors duration-200 hover:border-cyan/60 hover:text-cyan",
         className,
       )}
     >

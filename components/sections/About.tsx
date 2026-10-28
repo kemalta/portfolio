@@ -141,7 +141,7 @@ export function About() {
                           {row.href ? (
                             <a
                               href={row.href}
-                              className="transition-colors hover:text-cyan"
+                              className="tap inline-flex items-center transition-colors hover:text-cyan"
                             >
                               {row.value}
                             </a>

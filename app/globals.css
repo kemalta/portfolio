@@ -34,6 +34,29 @@
   html {
     -webkit-text-size-adjust: 100%;
     scroll-behavior: smooth;
+    /* iOS/Android paint a gray flash over tapped elements; kills the last
+       "this is a website" tell. Press feedback comes from :active instead. */
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Touch controls: no 300ms double-tap-zoom wait, no long-press selection. */
+  button,
+  [role="button"],
+  summary,
+  a.btn {
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+  }
+
+  /* Press feedback on contact, not on release (native buttons react instantly). */
+  @media (hover: none), (pointer: coarse) {
+    button:active:not(:disabled),
+    [role="button"]:active,
+    a.btn:active {
+      filter: brightness(1.16);
+    }
   }
 
   body {
@@ -164,9 +187,11 @@
     font-weight: 500;
   }
 
-  .btn-primary:hover {
-    background: #9aeeff;
-    border-color: #9aeeff;
+  @media (hover: hover) and (pointer: fine) {
+    .btn-primary:hover {
+      background: #9aeeff;
+      border-color: #9aeeff;
+    }
   }
 
   .btn-ghost {
@@ -174,9 +199,11 @@
     color: var(--fg);
   }
 
-  .btn-ghost:hover {
-    background: rgba(233, 237, 240, 0.05);
-    border-color: rgba(233, 237, 240, 0.28);
+  @media (hover: hover) and (pointer: fine) {
+    .btn-ghost:hover {
+      background: rgba(233, 237, 240, 0.05);
+      border-color: rgba(233, 237, 240, 0.28);
+    }
   }
 
   .link-line {
@@ -199,10 +226,17 @@
     transition: transform 320ms var(--ease-out);
   }
 
-  .link-line:hover::after,
   .link-line:focus-visible::after {
     transform: scaleX(1);
     transform-origin: left;
+  }
+
+  /* Touch leaves :hover latched after a tap, so hover styles stay desktop-only. */
+  @media (hover: hover) and (pointer: fine) {
+    .link-line:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
   }
 
   .field {
@@ -223,8 +257,10 @@
     color: rgba(233, 237, 240, 0.28);
   }
 
-  .field:hover {
-    border-color: rgba(233, 237, 240, 0.2);
+  @media (hover: hover) and (pointer: fine) {
+    .field:hover {
+      border-color: rgba(233, 237, 240, 0.2);
+    }
   }
 
   .field:focus {
@@ -602,5 +638,48 @@ html.lenis body {
   [data-reveal] {
     opacity: 1 !important;
     transform: none !important;
+  }
+}
+
+@layer utilities {
+  /*
+   * Form controls: 13px is the desktop look, but iOS zooms the whole page when
+   * a focused input is under 16px — and never zooms back out. Coarse pointers
+   * get 16px so the page stays put.
+   */
+  .input-text {
+    font-size: 13px;
+  }
+
+  @media (pointer: coarse) {
+    .input-text {
+      font-size: 16px;
+    }
+  }
+}
+
+@layer utilities {
+  /*
+   * Touch targets. 44px is the platform minimum, but only where the pointer is
+   * coarse — a mouse doesn't need it and the dense desktop layout would suffer.
+   */
+  .tap {
+    min-height: 44px;
+  }
+
+  .tap-square {
+    height: 44px;
+    width: 44px;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .tap {
+      min-height: 0;
+    }
+
+    .tap-square {
+      height: 2rem;
+      width: 2rem;
+    }
   }
 }

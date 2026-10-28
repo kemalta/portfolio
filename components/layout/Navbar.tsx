@@ -113,7 +113,7 @@ export function Navbar() {
     <>
       <header
         className={cn(
-          "fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300",
+          "fixed inset-x-0 top-0 z-50 border-b pt-[env(safe-area-inset-top,0px)] transition-colors duration-300",
           scrolled
             ? "border-line bg-void/85 backdrop-blur-md"
             : "border-transparent bg-transparent",
@@ -126,10 +126,10 @@ export function Navbar() {
               event.preventDefault();
               go("#top");
             }}
-            className="group flex items-center gap-3"
+            className="group flex min-h-11 items-center gap-3"
             aria-label="Kemal Talha Ekici — başa dön"
           >
-            <span className="relative grid h-9 w-9 place-items-center border border-line bg-ink text-[11px] font-semibold tracking-[0.02em] text-void transition-colors duration-200 group-hover:border-cyan">
+            <span className="relative grid h-10 w-10 place-items-center border border-line bg-ink text-[11px] font-semibold tracking-[0.02em] text-void transition-colors duration-200 group-hover:border-cyan sm:h-9 sm:w-9">
               KTE
               <span className="absolute -right-1 -top-1 h-1.5 w-1.5 bg-cyan" />
             </span>
@@ -177,7 +177,7 @@ export function Navbar() {
             <button
               type="button"
               onClick={() => go("#iletisim")}
-              className="btn btn-ghost hidden h-9 px-4 text-[9px] sm:inline-flex"
+              className="btn btn-ghost tap hidden px-4 text-[9px] sm:inline-flex"
             >
               İletişim
               <ArrowUpRight />
@@ -190,7 +190,7 @@ export function Navbar() {
               aria-expanded={open}
               aria-controls="mobile-menu"
               aria-label={open ? "Menüyü kapat" : "Menüyü aç"}
-              className="grid h-9 w-9 place-items-center border border-line text-ink transition-colors duration-200 hover:border-ink/40 lg:hidden"
+              className="grid h-11 w-11 place-items-center border border-line text-ink transition-colors duration-200 hover:border-ink/40 lg:hidden"
             >
               <span className="relative flex h-3 w-4 flex-col justify-between">
                 <span
@@ -229,9 +229,9 @@ export function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-void/96 backdrop-blur-xl lg:hidden"
+            className="fixed inset-0 z-40 overflow-y-auto overscroll-contain bg-void/96 pb-[env(safe-area-inset-bottom,0px)] pt-[env(safe-area-inset-top,0px)] backdrop-blur-xl lg:hidden"
           >
-            <div className="shell flex h-full flex-col justify-between pb-8 pt-28">
+            <div className="shell flex min-h-full flex-col justify-between pb-8 pt-24 sm:pt-28">
               <nav aria-label="Mobil navigasyon bağlantıları">
                 <ul className="border-t border-line">
                   {navItems.map((item, index) => (
@@ -279,7 +279,7 @@ export function Navbar() {
                 {siteConfig.email ? (
                   <a
                     href={`mailto:${siteConfig.email}`}
-                    className="link-line break-all font-display text-lg text-ink"
+                    className="link-line tap items-center break-all font-display text-lg text-ink"
                   >
                     {siteConfig.email}
                   </a>

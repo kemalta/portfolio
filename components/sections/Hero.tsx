@@ -150,7 +150,7 @@ export function Hero() {
         className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(90deg,#06080a_0%,rgba(6,8,10,0.94)_30%,rgba(6,8,10,0.55)_52%,rgba(6,8,10,0.1)_75%,transparent_100%)] lg:bg-[linear-gradient(90deg,#06080a_0%,rgba(6,8,10,0.9)_38%,rgba(6,8,10,0.35)_62%,transparent_80%)]"
       />
 
-      <div className="shell relative z-10 flex min-h-[calc(100svh-70px)] flex-col justify-between pb-6 pt-8 sm:pt-10 lg:pb-7">
+      <div className="shell relative z-10 flex min-h-[calc(100svh-70px)] flex-col justify-between pb-6 pt-6 sm:pt-10 lg:pb-7">
         <div data-hero-content>
           <div
             data-hero-kicker
@@ -167,7 +167,7 @@ export function Hero() {
             </p>
           </div>
 
-          <div className="mt-8 grid grid-cols-1 gap-10 lg:mt-12 lg:grid-cols-12 lg:gap-8">
+          <div className="mt-6 grid grid-cols-1 gap-10 sm:mt-8 lg:mt-12 lg:grid-cols-12 lg:gap-8">
             <div className="lg:col-span-8">
               <h1
                 id="hero-title"
@@ -195,7 +195,7 @@ export function Hero() {
                 ))}
               </h1>
 
-              <div className="mt-7 flex max-w-2xl flex-col gap-4 border-l border-line pl-5 sm:mt-9 sm:flex-row sm:items-center sm:gap-6">
+              <div className="mt-5 flex max-w-2xl flex-col gap-4 border-l border-line pl-5 sm:mt-9 sm:flex-row sm:items-center sm:gap-6">
                 <p
                   data-hero-serif
                   className="serif text-[clamp(1.35rem,2.1vw,1.9rem)] leading-[1.2] text-ink"
@@ -243,7 +243,7 @@ export function Hero() {
 
         <div
           data-hero-status
-          className="mt-12 border-t border-line pt-4 lg:mt-16"
+          className="mt-8 border-t border-line pt-4 lg:mt-16"
         >
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <dl className="grid grid-cols-2 gap-x-8 gap-y-3 sm:grid-cols-3 lg:grid-cols-4">

@@ -192,7 +192,7 @@ export function Contact() {
                 {siteConfig.email ? (
                   <a
                     href={`mailto:${siteConfig.email}`}
-                    className="group flex flex-col gap-1 border-b border-line-soft pb-4 sm:flex-row sm:items-center sm:justify-between sm:gap-4"
+                    className="tap group flex flex-col gap-1 border-b border-line-soft pb-4 sm:flex-row sm:items-center sm:justify-between sm:gap-4"
                   >
                     <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-faint">
                       E-posta
@@ -222,7 +222,7 @@ export function Contact() {
                           href={link.href}
                           target="_blank"
                           rel="noreferrer noopener"
-                          className="inline-flex items-center gap-2 border border-line px-3 py-1.5 font-mono text-[9px] uppercase tracking-[0.14em] text-ink/70 transition-colors hover:border-cyan/50 hover:text-cyan"
+                          className="tap inline-flex items-center gap-2 border border-line px-3 py-1.5 font-mono text-[9px] uppercase tracking-[0.14em] text-ink/70 transition-colors hover:border-cyan/50 hover:text-cyan"
                         >
                           {link.label}
                           <span aria-hidden>↗</span>
@@ -326,7 +326,7 @@ export function Contact() {
                       errors.message ? `${formId}-message-error` : undefined
                     }
                     className={cn(
-                      "w-full resize-y border bg-void/40 px-3.5 py-3 text-[13px] leading-relaxed text-ink outline-none transition-colors placeholder:text-faint",
+                      "input-text w-full resize-y border bg-void/40 px-3.5 py-3 leading-relaxed text-ink outline-none transition-colors placeholder:text-faint",
                       errors.message
                         ? "border-amber/60"
                         : "border-line focus:border-cyan/50",
@@ -359,7 +359,7 @@ export function Contact() {
                 <button
                   type="submit"
                   disabled={status === "sending"}
-                  className="inline-flex items-center justify-center gap-3 border border-cyan/45 bg-cyan/[0.08] px-5 py-2.5 font-mono text-[9px] uppercase tracking-[0.18em] text-cyan transition-colors duration-200 hover:bg-cyan/[0.15] disabled:cursor-not-allowed disabled:opacity-50"
+                  className="tap inline-flex items-center justify-center gap-3 border border-cyan/45 bg-cyan/[0.08] px-5 py-2.5 font-mono text-[9px] uppercase tracking-[0.18em] text-cyan transition-colors duration-200 hover:bg-cyan/[0.15] disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   <span
                     className={cn(
@@ -476,11 +476,14 @@ function Field({
         value={value}
         placeholder={placeholder}
         autoComplete={autoComplete}
+        autoCapitalize={type === "email" ? "none" : undefined}
+        autoCorrect={type === "email" ? "off" : undefined}
+        inputMode={type === "email" ? "email" : undefined}
         onChange={(event) => onChange(event.target.value)}
         aria-invalid={Boolean(error)}
         aria-describedby={error ? `${id}-error` : undefined}
         className={cn(
-          "w-full border bg-void/40 px-3.5 py-2.5 text-[13px] text-ink outline-none transition-colors placeholder:text-faint",
+          "input-text w-full border bg-void/40 px-3.5 py-2.5 text-ink outline-none transition-colors placeholder:text-faint",
           error ? "border-amber/60" : "border-line focus:border-cyan/50",
         )}
       />

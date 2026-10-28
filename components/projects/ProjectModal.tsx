@@ -155,7 +155,7 @@ export function ProjectModal({
             initial={reduceMotion ? false : { opacity: 0, y: 28, scale: 0.995 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={transition}
-            className="relative z-10 flex max-h-[94svh] w-full max-w-5xl flex-col border border-line bg-[#080c10] shadow-[0_40px_120px_rgba(0,0,0,0.6)] sm:max-h-[90svh]"
+            className="relative z-10 flex max-h-[94svh] w-full max-w-5xl flex-col border border-line bg-[#080c10] pb-[env(safe-area-inset-bottom,0px)] shadow-[0_40px_120px_rgba(0,0,0,0.6)] sm:max-h-[90svh] sm:pb-0"
           >
             <div className="flex items-start justify-between gap-4 border-b border-line px-4 py-3.5 sm:px-6 sm:py-4">
               <div className="min-w-0">

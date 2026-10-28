@@ -85,6 +85,11 @@ export const viewport: Viewport = {
   colorScheme: "dark",
   width: "device-width",
   initialScale: 1,
+  // Let the page reach the notch/home-indicator area; components pad themselves
+  // back with env(safe-area-inset-*). Zoom is never disabled — the inputs are
+  // 16px on touch instead.
+  viewportFit: "cover",
+  interactiveWidget: "resizes-content",
 };
 
 const personSchema = {

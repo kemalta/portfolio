@@ -2,6 +2,11 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
   darkMode: "class",
+  // Touch devices fake :hover on first tap and leave it stuck. Only apply
+  // hover styles where the pointer can actually hover.
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   content: [
     "./app/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",

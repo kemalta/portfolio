@@ -8,7 +8,7 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative border-t border-line bg-void">
+    <footer className="relative border-t border-line bg-void pb-[env(safe-area-inset-bottom,0px)]">
       <div className="shell pt-14">
         <div className="grid grid-cols-1 gap-10 pb-14 lg:grid-cols-12">
           <div className="lg:col-span-5">
@@ -40,7 +40,7 @@ export function Footer() {
                       event.preventDefault();
                       scrollTo(item.href, -76);
                     }}
-                    className="link-line text-[13px] text-dim transition-colors hover:text-ink"
+                    className="link-line tap items-center text-[13px] text-dim transition-colors hover:text-ink"
                   >
                     {item.label}
                   </a>
@@ -54,7 +54,7 @@ export function Footer() {
             {siteConfig.email ? (
               <a
                 href={`mailto:${siteConfig.email}`}
-                className="link-line font-display text-lg text-ink"
+                className="link-line tap font-display text-lg text-ink"
               >
                 {siteConfig.email}
               </a>
@@ -71,7 +71,7 @@ export function Footer() {
                       href={link.href}
                       target="_blank"
                       rel="noreferrer noopener"
-                      className="link-line font-mono text-[10px] uppercase tracking-[0.18em] text-dim hover:text-ink"
+                      className="link-line tap items-center font-mono text-[10px] uppercase tracking-[0.18em] text-dim hover:text-ink"
                     >
                       {link.label}
                     </a>
@@ -82,7 +82,7 @@ export function Footer() {
             <button
               type="button"
               onClick={() => scrollTo("#top", 0)}
-              className="mt-7 inline-flex items-center gap-2 border border-line px-3.5 py-2.5 font-mono text-[9px] uppercase tracking-[0.2em] text-dim transition-colors duration-200 hover:border-ink/35 hover:text-ink"
+              className="tap mt-7 inline-flex items-center gap-2 border border-line px-3.5 py-2.5 font-mono text-[9px] uppercase tracking-[0.2em] text-dim transition-colors duration-200 hover:border-ink/35 hover:text-ink"
             >
               Başa dön
               <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden>

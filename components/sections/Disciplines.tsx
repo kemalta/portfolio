@@ -294,7 +294,7 @@ export function Disciplines() {
               </p>
               <a
                 href="#laboratuvar"
-                className="link-line self-start font-mono text-[9px] uppercase tracking-[0.18em] text-cyan sm:self-auto"
+                className="link-line tap -my-3 self-start py-3 font-mono text-[9px] uppercase tracking-[0.18em] text-cyan sm:self-auto"
               >
                 Topolojiyi incele
               </a>

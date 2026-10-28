@@ -159,7 +159,7 @@ export function NetworkLab() {
                     type="button"
                     onClick={() => setResetSignal((value) => value + 1)}
                     aria-label="Kamera görünümünü sıfırla"
-                    className="grid h-8 w-8 place-items-center border border-line bg-void/70 text-dim backdrop-blur-sm transition-colors hover:border-ink/35 hover:text-ink"
+                    className="tap-square grid place-items-center border border-line bg-void/70 text-dim backdrop-blur-sm transition-colors hover:border-ink/35 hover:text-ink"
                   >
                     <ResetIcon />
                   </button>
@@ -169,7 +169,7 @@ export function NetworkLab() {
                     aria-pressed={autoRotate}
                     aria-label="Otomatik döndürmeyi aç veya kapat"
                     className={cn(
-                      "grid h-8 w-8 place-items-center border backdrop-blur-sm transition-colors",
+                      "tap-square grid place-items-center border backdrop-blur-sm transition-colors",
                       autoRotate
                         ? "border-cyan/50 bg-cyan/10 text-cyan"
                         : "border-line bg-void/70 text-dim hover:border-ink/35 hover:text-ink",
@@ -231,7 +231,7 @@ export function NetworkLab() {
                     setGroups(ALL_GROUPS);
                     setSelected(null);
                   }}
-                  className="font-mono text-[9px] uppercase tracking-[0.16em] text-faint transition-colors hover:text-ink"
+                  className="tap -my-2 inline-flex items-center py-2 font-mono text-[9px] uppercase tracking-[0.16em] text-faint transition-colors hover:text-ink"
                 >
                   Tümünü göster
                 </button>
@@ -248,7 +248,7 @@ export function NetworkLab() {
                       aria-pressed={enabled}
                       onClick={() => toggleGroup(group)}
                       className={cn(
-                        "flex items-center justify-between gap-2 border px-2.5 py-2.5 text-left transition-colors duration-200",
+                        "tap flex items-center justify-between gap-2 border px-2.5 py-2.5 text-left transition-colors duration-200",
                         enabled
                           ? "border-ink/25 bg-ink/[0.045]"
                           : "border-line text-faint hover:border-ink/15",
@@ -297,7 +297,7 @@ export function NetworkLab() {
                   <button
                     type="button"
                     onClick={() => setSelected(null)}
-                    className="font-mono text-[9px] uppercase tracking-[0.16em] text-faint transition-colors hover:text-ink"
+                    className="tap -my-2 inline-flex items-center py-2 font-mono text-[9px] uppercase tracking-[0.16em] text-faint transition-colors hover:text-ink"
                   >
                     Temizle
                   </button>
@@ -377,7 +377,7 @@ export function NetworkLab() {
                         onFocus={() => setHovered(item.id)}
                         onBlur={() => setHovered(null)}
                         className={cn(
-                          "flex w-full items-center gap-2.5 border-b border-line-soft py-2 text-left transition-colors duration-150",
+                          "tap flex w-full items-center gap-2.5 border-b border-line-soft py-2 text-left transition-colors duration-150",
                           isSelected || isHovered
                             ? "text-ink"
                             : "text-dim hover:text-ink",
